@@ -1,39 +1,29 @@
 <div class="container">
-    <p>{{ message }}</p>
+    <p>Request access to resources</p>
 
-    <div class="request-inner-body-container">
-        <div class="request-label glyphicon-asterisk">Resource address:</div>
-        <input class="custom-form-control request-form-control-input ng-pristine ng-valid ng-valid-maxlength ng-touched"
-               ng-model="request.resource" maxlength="256" placeholder="E.g: https://jira.atlassian.com/">
+    <div>
+        <div>Resource address:</div>
+        <input ng-model="request.resource" maxlength="256" placeholder="E.g: https://jira.atlassian.com/">
     </div>
 
-    <div class="request-inner-body-container">
-        <div class="request-label">Project name:</div>
-        <input class="custom-form-control request-form-control-input ng-pristine ng-untouched ng-valid ng-valid-maxlength"
-               ng-model="request.project_name" maxlength="256" placeholder="Please, type project name here">
-
-        <div class="request-inner-body-container">
-            <div class="request-label glyphicon-asterisk">Resource address:</div>
-            <input class="custom-form-control request-form-control-input ng-pristine ng-valid ng-valid-maxlength ng-touched"
-                   ng-model="request.resource" maxlength="256" placeholder="E.g: https://jira.atlassian.com/">
-        </div>
+    <div>
+        <div class="">Project name:</div>
+        <input ng-model="request.project_name" maxlength="256" placeholder="Please, type project name here">
     </div>
 
     <div class="request-inner-body-container">
         <div style="display: inline" class="request-label">Do you have an account in this resourse?</div>
-        <input type="checkbox" ng-model="request.has_account" ng-click="resetLoginValue()"
-               class="ng-pristine ng-untouched ng-valid">
+        <input type="checkbox" ng-model="request.has_account" ng-click="resetLoginValue()">
     </div>
 
-    <div class="request-inner-body-container">
-        <div class="request-label" ng-class="request.has_account ? 'glyphicon-asterisk' : '' ">User login:</div>
-        <input class="custom-form-control request-form-control-input ng-pristine ng-untouched ng-valid disabled-input ng-valid-maxlength"
-               ng-disabled="!request.has_account" ng-class="!request.has_account ? 'disabled-input' : '' "
+    <div>
+        <div ng-class="request.has_account ? 'glyphicon-asterisk' : '' ">User login:</div>
+        <input ng-disabled="!request.has_account" ng-class="!request.has_account ? 'disabled-input' : '' "
                ng-model="request.login" maxlength="256" disabled="disabled">
     </div>
 
-    <div class="request-inner-body-container">
-        <div class="request-label">Additional information:</div>
+    <div>
+        <div>Additional information:</div>
         <textarea class="request-textarea ng-pristine ng-untouched ng-valid ng-valid-maxlength"
                   ng-model="request.additional_information" maxlength="256"></textarea>
     </div>

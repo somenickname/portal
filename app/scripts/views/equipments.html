@@ -1,29 +1,38 @@
 <div class="container">
 
-    <p>{{ message }}</p>
+    <p>Request to replace/upgrade equipment</p>
 
     <div class="request-inner-body-container">
         <div class="request-label glyphicon-asterisk">Equipment you want:</div>
-        <input class="custom-form-control request-form-control-input ng-pristine ng-valid ng-touched" ng-model="request.equipment" placeholder="E.g.: RAM 4gb, HDD 500gb">
+        <input class="custom-form-control request-form-control-input ng-pristine ng-valid ng-touched"
+               ng-model="request.equipment" placeholder="E.g.: RAM 4gb, HDD 500gb">
     </div>
 
     <div class="request-inner-body-container">
         <div class="request-label glyphicon-asterisk">Reason to replace:</div>
-        <select class="custom-form-control request-form-control ng-pristine ng-valid ng-touched" ng-options="reason for reason in reasons" ng-model="request.reason"><option value="" class="" selected="selected">Not selected</option><option value="string:Breakdown" label="Breakdown">Breakdown</option><option value="string:Upgrade" label="Upgrade">Upgrade</option><option value="string:Individual preference" label="Individual preference">Individual preference</option><option value="string:Other" label="Other">Other</option></select>
+        <select class="custom-form-control request-form-control ng-pristine ng-valid ng-touched"
+                ng-options="reason for reason in reasons"
+                ng-model="request.reason">
+        </select>
     </div>
 
     <div class="request-inner-body-container">
         <div class="request-label glyphicon-asterisk">Criticality:</div>
-        <select class="custom-form-control request-form-control ng-pristine ng-untouched ng-valid" ng-options="criticality for criticality in criticalities" ng-model="request.criticality"><option value="" class="" selected="selected">Not selected</option><option value="string:Low: nice-to-have" label="Low: nice-to-have">Low: nice-to-have</option><option value="string:Medium: ready to be patient, but not for too long" label="Medium: ready to be patient, but not for too long">Medium: ready to be patient, but not for too long</option><option value="string:High: blocker for work" label="High: blocker for work">High: blocker for work</option></select>
+        <select class="custom-form-control request-form-control ng-pristine ng-untouched ng-valid"
+                ng-options="criticality for criticality in criticalities" ng-model="request.criticality">
+        </select>
     </div>
 
     <div class="request-inner-body-container">
         <div class="request-label">Additional information:</div>
-        <textarea class="request-textarea ng-pristine ng-untouched ng-valid ng-valid-maxlength" ng-model="request.additional_information" maxlength="256"></textarea>
+        <textarea class="request-textarea ng-pristine ng-untouched ng-valid ng-valid-maxlength"
+                  ng-model="request.additional_information" maxlength="256"></textarea>
     </div>
 
     <div class="request-inner-body-container">
-        <button class="btn btn-primary" ng-disabled="isFormInvalid(request) || isDisabled" ng-click="sendEquipmentRequest();" disabled="disabled">Send</button>
+        <button class="btn btn-primary" ng-disabled="isFormInvalid(request) || isDisabled"
+                ng-click="sendEquipmentRequest();" disabled="disabled">Send
+        </button>
         <button class="btn btn-default" ng-click="cancel()">Cancel</button>
     </div>
 
