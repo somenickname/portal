@@ -1,5 +1,6 @@
 var appPortal = angular.module('appPortal', [
     'ngRoute',
+    'ngCookies',
     'appPortal.home'
 ]);
 
@@ -8,7 +9,7 @@ appPortal.config(function ($routeProvider) {
         redirectTo: '/tsd_requests'
     });
 })
-    .controller("TabController", function ($scope) {
+    .controller("TabController", ['$scope', '$cookies', function ($scope, $cookies) {
         this.tab = 1;
 
         this.isSet = function (checkTab) {
@@ -24,6 +25,6 @@ appPortal.config(function ($routeProvider) {
         $scope.services = ['Tachometer Ltd', 'HR Grades', 'HR Portal'];
 
         $scope.sendEquipmentRequest = function (request) {
-            document.cookie = request;
+            $cookies.put('tsd_request', JSON.stringify(request));
         };
-    });
+    }]);
