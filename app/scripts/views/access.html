@@ -1,39 +1,40 @@
-<div class="container">
-    <p>Request access to resources</p>
+<!--<div class="container">-->
+<p>Request access to resources</p>
 
-    <div>
-        <div>Resource address:</div>
-        <input ng-model="request.resource" maxlength="256" placeholder="E.g: https://jira.atlassian.com/">
-    </div>
-
-    <div>
-        <div class="">Project name:</div>
-        <input ng-model="request.project_name" maxlength="256" placeholder="Please, type project name here">
-    </div>
-
-    <div class="request-inner-body-container">
-        <div style="display: inline" class="request-label">Do you have an account in this resourse?</div>
-        <input type="checkbox" ng-model="request.has_account" ng-click="resetLoginValue()">
-    </div>
-
-    <div>
-        <div ng-class="request.has_account ? 'glyphicon-asterisk' : '' ">User login:</div>
-        <input ng-disabled="!request.has_account" ng-class="!request.has_account ? 'disabled-input' : '' "
-               ng-model="request.login" maxlength="256" disabled="disabled">
-    </div>
-
-    <div>
-        <div>Additional information:</div>
-        <textarea class="request-textarea ng-pristine ng-untouched ng-valid ng-valid-maxlength"
-                  ng-model="request.additional_information" maxlength="256"></textarea>
-    </div>
-
-    <div class="request-inner-body-container">
-        <button class="btn btn-primary" ng-disabled="isFormInvalid(request) || isDisabled"
-                ng-click="sendResourcesAccessRequest();" disabled="disabled">Send
-        </button>
-        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
-    </div>
-
-
+<div class="form-group">
+    <label for="resource">Resource address:</label>
+    <input type="text" class="form-control" id="resource" ng-model="request.resource" maxlength="256"
+           placeholder="E.g: https://jira.atlassian.com/">
 </div>
+
+
+<div class="form-group">
+    <label for="project">Project name:</label>
+    <input type="text" class="form-control" id="project" ng-model="request.project_name" maxlength="256"
+           placeholder="Please, type project name here">
+</div>
+
+<div class="form-group">
+    <div style="display: inline" class="request-label">Do you have an account in this resourse?</div>
+    <input type="checkbox" ng-model="request.has_account" ng-click="resetLoginValue()">
+</div>
+
+<div class="form-group">
+    <label for="login">User login:</label>
+    <input type="text" class="form-control" id="login" ng-disabled="!request.has_account"
+           ng-class="!request.has_account ? 'disabled-input' : '' "
+           ng-model="request.login" maxlength="256" disabled="disabled">
+</div>
+
+<div class="form-group">
+    <label for="info">Additional information:</label>
+    <textarea class="form-control" id="info" ng-model="request.additional_information" maxlength="256"></textarea>
+</div>
+
+<div class="form-group">
+    <button class="btn btn-primary" ng-click="sendResourcesAccessRequest()">Send</button>
+    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>
+
+
+<!--</div>-->

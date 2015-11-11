@@ -1,34 +1,25 @@
-<div class="container">
-    <p>Submit a bug report</p>
+<p>Submit a bug report</p>
 
-    <div class="request-body">
+<div class="request-body">
 
-        <div class="request-inner-body-container">
-            <div class="request-label glyphicon-asterisk">I have a problem with:</div>
-            <select class="custom-form-control request-form-control ng-pristine ng-valid ng-touched"
-                    ng-options="service for service in services" ng-model="request.service">
-            </select>
-        </div>
-
-        <div class="request-inner-body-container">
-            <div class="request-label glyphicon-asterisk">Problem description:</div>
-            <input class="custom-form-control request-form-control-input ng-pristine ng-untouched ng-valid ng-valid-maxlength"
-                   style="width: 500px !important;" ng-model="request.description" maxlength="256"
-                   placeholder="E.g.: 'Send' button doesn't work on the home page">
-        </div>
-
-        <div class="request-inner-body-container">
-            <div class="request-label glyphicon-asterisk">Steps to reproduce:</div>
-            <textarea class="request-textarea ng-pristine ng-untouched ng-valid ng-valid-maxlength"
-                      ng-model="request.steps" maxlength="256"></textarea>
-        </div>
-        <div class="request-inner-body-container">
-            <button class="btn btn-primary" ng-disabled="isFormInvalid(request) || isDisabled"
-                    ng-click="sendBugReportRequest();" disabled="disabled">Send
-            </button>
-            <button class="btn btn-default" ng-click="cancel()">Cancel</button>
-        </div>
+    <div class="form-group">
+        <label for="problem">I have a problem with:</label>
+        <select class="form-control" id="problem" ng-options="service for service in services"
+                ng-model="request.service"></select>
     </div>
 
+    <div class="form-group">
+        <label for="description">Problem description:</label>
+        <input type="text" class="form-control" id="description" ng-model="request.description" maxlength="256"
+               placeholder="E.g.: 'Send' button doesn't work on the home page">
+    </div>
 
+    <div class="form-group">
+        <label for="steps">Steps to reproduce:</label>
+        <textarea class="form-control" id="steps" ng-model="request.steps" maxlength="256"></textarea>
+    </div>
+    <div>
+        <button class="btn btn-primary" ng-click="sendBugReportRequest()">Send</button>
+        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
 </div>
