@@ -24,7 +24,7 @@ appPortal.config(function ($routeProvider) {
         $scope.criticalities = ['Low: nice-to-have', 'Medium:ready to be patient, but not for too long', 'High: blocker for work'];
         $scope.services = ['Tachometer Ltd', 'HR Grades', 'HR Portal'];
 
-        $scope.sendEquipmentRequest = function (request) {
+        $scope.send = function (request) {
             $cookies.put('tsd_request', JSON.stringify(request));
         };
     }]);
